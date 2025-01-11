@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Achievement {
+  id: String!
+  title: String!
+  description: String
+  points: Int!
+  difficulty: Difficulty!
+}
+
+"""Difficulty levels for achievements"""
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+type Game {
+  id: String!
+  name: String!
+
+  """The genre for the game"""
+  genre: String!
+  achievements(offset: Int!, limit: Int!, difficulty: Difficulty): [Achievement!]!
+}
+
+type Query {
+  games(offset: Int!, limit: Int!): [Game!]!
+  game(id: String!): Game!
+}
+
+type Mutation {
+  createGame(input: CreateGameInput!): Game!
+  createAchievement(input: CreateAchievementInput!): Achievement!
+}
+
+input CreateGameInput {
+  name: String!
+  genre: String!
+}
+
+input CreateAchievementInput {
+  gameId: String!
+  title: String!
+  description: String!
+  difficulty: Difficulty!
+  points: Int!
+}

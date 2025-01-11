@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Game {
+  id: String!
+  name: String!
+  genre: String!
+}
+
+type Query {
+  getGames: [Game!]!
+}
